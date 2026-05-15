@@ -36,12 +36,19 @@ p.contactinfo {
   font-size: 12px;
 }
 
-p.contactinfo.nav-sub {
+p.contactinfo.nav-group {
+  margin: 16px 0 6px;
+  color: var(--burgundy);
   font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+p.contactinfo.nav-sub {
+  font-size: 12px;
   text-transform: none;
   letter-spacing: 0.02em;
   font-weight: 400;
-  margin: 0 0 5px;
+  margin: 0 0 4px;
   padding-left: 12px;
   color: #6d6d6d;
 }
@@ -52,6 +59,11 @@ p.contactinfo.nav-sub a {
 
 p.contactinfo.nav-sub a:hover {
   color: var(--burgundy-dark);
+}
+
+p.contactinfo.nav-sub a.current {
+  color: var(--burgundy);
+  font-weight: 700;
 }
 
 h3.subhead {
