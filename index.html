@@ -64,7 +64,7 @@ function filterPapers(tag) {
 <p class="contactinfo"><a href="#news">News</a></p>
 <p class="contactinfo"><a href="#papers">Papers &amp; Discussions</a></p>
 <p class="contactinfo"><a href="#popular-writing">Popular Writing</a></p>
-<p class="contactinfo nav-group">Projects</p>
+<p class="contactinfo nav-group">Data and Codes</p>
 <div id="projects-list">
 <p class="contactinfo nav-sub"><a href="./projects/firm-name-cleaning/">Firm Name Cleaning</a></p>
 <p class="contactinfo nav-sub"><a href="./projects/long-term-housing-yield/">Long Term Housing Yield</a></p>
@@ -118,15 +118,15 @@ function filterPapers(tag) {
 <span class="filter-label">Filter by topic:</span>
 <button class="filter-chip active" data-filter="all" onclick="filterPapers('all')">All</button>
 <button class="filter-chip" data-filter="inflation" onclick="filterPapers('inflation')">Inflation</button>
-<button class="filter-chip" data-filter="wages" onclick="filterPapers('wages')">Wages &amp; Labor</button>
-<button class="filter-chip" data-filter="monetary" onclick="filterPapers('monetary')">Monetary</button>
-<button class="filter-chip" data-filter="fiscal" onclick="filterPapers('fiscal')">Fiscal</button>
+<button class="filter-chip" data-filter="labor" onclick="filterPapers('labor')">Labor</button>
+<button class="filter-chip" data-filter="macro" onclick="filterPapers('macro')">Macro Policy</button>
 <button class="filter-chip" data-filter="financial" onclick="filterPapers('financial')">Financial</button>
+<button class="filter-chip" data-filter="ai" onclick="filterPapers('ai')">Artificial Intelligence</button>
 </div>
 
 <h3 id="working-papers" class="subhead">Working Papers</h3>
 
-<div class="research-work" data-tags="monetary">
+<div class="research-work" data-tags="macro,financial">
 <h3><a href="https://jadhazell.github.io/website/Household_Debt_Asset_Prices.pdf" target="_blank" rel="noopener">How Do Interest Rates Affect Consumption? Household Debt and the Role of Asset Prices</a></h3>
 <p class="work-muted">(with Angus Foulis, <a href="https://atif.scholar.princeton.edu/" target="_blank" rel="noopener">Atif Mian</a>, and Belinda Tracey)</p>
 <p class="work-muted">January 2026.</p>
@@ -134,7 +134,7 @@ function filterPapers(tag) {
 <p class="work-muted">Coverage: Bank of England Monetary Policy Report (Box E). <a href="https://x.com/JADHazell/status/2031019354377101442" target="_blank" rel="noopener">Twitter summary</a>.</p>
 </div>
 
-<div class="research-work" data-tags="fiscal,inflation">
+<div class="research-work" data-tags="macro,inflation">
 <h3><a href="https://jadhazell.github.io/website/Fiscal_Inflation_Draft.pdf" target="_blank" rel="noopener">Do Deficits Cause Inflation? A High Frequency Narrative Approach</a></h3>
 <p class="work-muted">(with <a href="https://www.lse.ac.uk/economics/people/research-students/stephan-hobler" target="_blank" rel="noopener">Stephan Hobler</a>)</p>
 <p class="work-muted">May 2025.</p>
@@ -142,7 +142,7 @@ function filterPapers(tag) {
 <p class="work-muted"><a href="./narrative-data/" target="_blank" rel="noopener">Narrative dataset</a>. <a href="https://twitter.com/JADHazell/status/1833182324055306684" target="_blank" rel="noopener">Twitter summary</a>.</p>
 </div>
 
-<div class="research-work" data-tags="financial,monetary">
+<div class="research-work" data-tags="financial,macro">
 <h3><a href="https://jadhazell.github.io/website/LASH_Risk.pdf" target="_blank" rel="noopener">LASH Risk and Interest Rates</a></h3>
 <p class="work-muted">(with Laura Alfaro, Saleem Bahaj, Robert Czech, and Ioana Neam&#539;u)</p>
 <p class="work-muted">March 2026.</p>
@@ -152,7 +152,7 @@ function filterPapers(tag) {
 
 <h3 id="published" class="subhead">Published &amp; Accepted</h3>
 
-<div class="research-work" data-tags="inflation,wages">
+<div class="research-work" data-tags="inflation,labor">
 <h3><a href="https://jadhazell.github.io/website/draft_conflicts.pdf" target="_blank" rel="noopener">Why Do Workers Dislike Inflation? Wage Erosion and Conflict Costs</a></h3>
 <p class="work-muted">(with <a href="https://jguerreiro.com/" target="_blank" rel="noopener">Joao Guerreiro</a>, Chen Lian, and <a href="https://www.christinahydepatterson.com/" target="_blank" rel="noopener">Christina Patterson</a>)</p>
 <p class="work-muted">Forthcoming, <em>Econometrica</em>, May 2026. Awarded the SCOR&ndash;PSE Junior Research Prize.</p>
@@ -160,7 +160,7 @@ function filterPapers(tag) {
 <p class="work-muted"><a href="https://jadhazell.github.io/website/conflicts_appendix.pdf" target="_blank" rel="noopener">Online Appendix</a>. <a href="https://twitter.com/JADHazell/status/1836485273510908272" target="_blank" rel="noopener">Twitter summary</a>. Coverage: Marginal Revolution, Bloomberg, Wall Street Journal.</p>
 </div>
 
-<div class="research-work" data-tags="wages">
+<div class="research-work" data-tags="labor">
 <h3><a href="https://jadhazell.github.io/website/National_Wage_Setting.pdf" target="_blank" rel="noopener">National Wage Setting</a></h3>
 <p class="work-muted">(with <a href="https://www.christinahydepatterson.com/" target="_blank" rel="noopener">Christina Patterson</a>, Heather Sarsons, and <a href="https://www.linkedin.com/in/bleditaska" target="_blank" rel="noopener">Bledi Taska</a>)</p>
 <p class="work-muted">Accepted, <em>American Economic Review</em>, June 2025.</p>
@@ -168,7 +168,7 @@ function filterPapers(tag) {
 <p class="work-muted"><a href="https://jadhazell.github.io/website/slides_national_wages.pdf" target="_blank" rel="noopener">Slides</a>. <a href="./firm-name-cleaning/" target="_blank" rel="noopener">Firm name cleaning code</a>. <a href="https://twitter.com/otis_reid/status/1476277485675462661" target="_blank" rel="noopener">Twitter summary</a>.</p>
 </div>
 
-<div class="research-work" data-tags="wages">
+<div class="research-work" data-tags="labor">
 <h3><a href="https://jadhazell.github.io/website/Bonus_Question.pdf" target="_blank" rel="noopener">Bonus Question: How Does Flexible Incentive Pay Affect Wage Rigidity?</a></h3>
 <p class="work-muted">(with <a href="https://www.linkedin.com/in/meghanagaur" target="_blank" rel="noopener">Meghana Gaur</a>, John Grigsby, and Abdoulaye Ndiaye)</p>
 <p class="work-muted">Forthcoming, <em>American Economic Review: Insights</em>, October 2025.</p>
@@ -176,7 +176,7 @@ function filterPapers(tag) {
 <p class="work-muted"><a href="https://twitter.com/and_joy_/status/1706630172072456560" target="_blank" rel="noopener">Twitter summary</a>. Coverage: Marginal Revolution.</p>
 </div>
 
-<div class="research-work" data-tags="monetary">
+<div class="research-work" data-tags="financial,macro">
 <h3><a href="https://jadhazell.github.io/website/UK_Duration.pdf" target="_blank" rel="noopener">Dynamics of the Long Term Housing Yield: Evidence from Natural Experiments</a></h3>
 <p class="work-muted">(with Ver&oacute;nica B&auml;cker-Peral and <a href="https://atif.scholar.princeton.edu/" target="_blank" rel="noopener">Atif Mian</a>)</p>
 <p class="work-muted"><em>American Economic Review</em>, March 2026.</p>
@@ -184,7 +184,7 @@ function filterPapers(tag) {
 <p class="work-muted"><a href="https://sites.google.com/view/ystar-dynamics" target="_blank" rel="noopener">Real-time estimates</a>. <a href="https://sites.google.com/view/ystar-dynamics/replication-code-data" target="_blank" rel="noopener">Replication package</a>. <a href="https://twitter.com/AtifRMian/status/1783153118756442215" target="_blank" rel="noopener">Twitter summary</a>. Coverage: Financial Times.</p>
 </div>
 
-<div class="research-work" data-tags="wages">
+<div class="research-work" data-tags="labor">
 <h3><a href="https://jadhazell.github.io/website/Downward_Rigidity.pdf" target="_blank" rel="noopener">Downward Rigidity in the Wage for New Hires</a></h3>
 <p class="work-muted">(with <a href="https://www.linkedin.com/in/bleditaska" target="_blank" rel="noopener">Bledi Taska</a>)</p>
 <p class="work-muted"><em>American Economic Review</em>, December 2025.</p>
@@ -200,7 +200,7 @@ function filterPapers(tag) {
 <p class="work-muted"><a href="https://jadhazell.github.io/website/Discussion_NBER_Macro.pdf" target="_blank" rel="noopener">Slides</a>.</p>
 </div>
 
-<div class="research-work" data-tags="inflation,wages">
+<div class="research-work" data-tags="inflation,labor">
 <h3><a href="https://jadhazell.github.io/website/Phillips_Curve.pdf" target="_blank" rel="noopener">The Slope of the Phillips Curve: Evidence from U.S. States</a></h3>
 <p class="work-muted">(with Juan Herre&ntilde;o, Emi Nakamura, and J&oacute;n Steinsson)</p>
 <p class="work-muted"><em>Quarterly Journal of Economics</em> [lead article], August 2022.</p>
@@ -208,14 +208,14 @@ function filterPapers(tag) {
 <p class="work-muted"><a href="https://eml.berkeley.edu/~enakamura/papers/StateLevelCPIs_Appendix.pdf" target="_blank" rel="noopener">Online Appendix</a>. <a href="./state-cpi/" target="_blank" rel="noopener">State CPI database</a>. <a href="https://www.dropbox.com/sh/5jfw1lltniz3k55/AACjJbs92kyqRiySJXavDvCAa?dl=0" target="_blank" rel="noopener">Replication package</a>. <a href="https://twitter.com/JonSteinsson/status/1318551141291069440" target="_blank" rel="noopener">Twitter summary</a>. Coverage: The Economist, Paul Krugman (Substack), Noah Smith (Bloomberg), Chicago Fed, New York Times, Full Stack Economics.</p>
 </div>
 
-<div class="research-work" data-tags="fiscal,wages">
+<div class="research-work" data-tags="macro,labor">
 <h3><a href="https://jadhazell.github.io/website/AEA_PP_Draft.pdf" target="_blank" rel="noopener">Unemployment Insurance Financing as a Uniform Payroll Tax</a></h3>
 <p class="work-muted">(with Sebastian Graves, Walker Lewis, and <a href="https://www.christinahydepatterson.com/" target="_blank" rel="noopener">Christina Patterson</a>)</p>
 <p class="work-muted"><em>American Economic Association Papers &amp; Proceedings</em>, May 2022.</p>
 <p class="work-abstract"><a class="abstract-link" href="javascript:flipAbstract(11)"><span id="cue-11">&#9656; Show abstract</span></a><span class="abstract-body" id="abstract-11" data-open="0" style="display:none">Documents that a substantial portion of US unemployment-insurance taxes operates as a uniform payroll tax rather than an experience-rated firing tax.</span></p>
 </div>
 
-<div class="research-work" data-tags="wages">
+<div class="research-work" data-tags="ai,labor">
 <h3><a href="https://jadhazell.github.io/website/AI_And_Jobs.pdf" target="_blank" rel="noopener">AI and Jobs: Evidence from Online Vacancies</a></h3>
 <p class="work-muted">(with Daron Acemoglu, David Autor, and Pascual Restrepo)</p>
 <p class="work-muted"><em>Journal of Labor Economics</em>, April 2022.</p>
@@ -233,7 +233,7 @@ function filterPapers(tag) {
 
 <h3 id="discussions" class="subhead">Discussions</h3>
 
-<div class="research-work" data-tags="inflation,wages">
+<div class="research-work" data-tags="inflation,labor">
 <h3><a href="https://jadhazell.github.io/website/ABDH_Discussion.pdf" target="_blank" rel="noopener">A Theory of How Workers Keep Up With Inflation</a></h3>
 <p class="work-muted">Discussion of work by Hassan Afrouzi, Andres Blanco, Andres Drenik, and Erik Hurst.</p>
 <p class="work-muted">NBER Monetary Economics, November 2024.</p>
@@ -269,7 +269,7 @@ function filterPapers(tag) {
 <p class="work-muted">Journal of Monetary Economics&ndash;SNB&ndash;Gerzensee Conference, October 2022.</p>
 </div>
 
-<div class="research-work" data-tags="wages">
+<div class="research-work" data-tags="labor">
 <h3><a href="https://jadhazell.github.io/website/Discussion_Petrosky-Nadeau.pdf" target="_blank" rel="noopener">Search Demand Effects, Equilibrium Unemployment and a Wage Phillips Curve</a></h3>
 <p class="work-muted">Discussion of work by Nicolas Petrosky-Nadeau, Etienne Wasmer, and Philippe Weil.</p>
 <p class="work-muted">AMSE&ndash;BdF Macro Workshop, December 2020.</p>
