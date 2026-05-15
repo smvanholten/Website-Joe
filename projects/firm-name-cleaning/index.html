@@ -10,6 +10,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../css/style.css">
 <link rel="stylesheet" href="../../css/custom.css">
+<script>
+function toggleProjects() {
+  var list = document.getElementById('projects-list');
+  var toggle = document.getElementById('projects-toggle');
+  if (list.style.display === 'none') {
+    list.style.display = '';
+    toggle.textContent = '▾ Projects';
+  } else {
+    list.style.display = 'none';
+    toggle.textContent = '▸ Projects';
+  }
+}
+</script>
 </head>
 <body>
 <div class="wrapper">
@@ -24,11 +37,13 @@
 <p class="contactinfo"><a href="../../#news">News</a></p>
 <p class="contactinfo"><a href="../../#papers">Papers &amp; Discussions</a></p>
 <p class="contactinfo"><a href="../../#popular-writing">Popular Writing</a></p>
-<p class="contactinfo nav-group">Projects</p>
+<p class="contactinfo nav-group"><a href="javascript:toggleProjects()" id="projects-toggle">▾ Projects</a></p>
+<div id="projects-list">
 <p class="contactinfo nav-sub"><a href="../firm-name-cleaning/" class="current">Firm Name Cleaning</a></p>
 <p class="contactinfo nav-sub"><a href="../long-term-housing-yield/">Long Term Housing Yield</a></p>
 <p class="contactinfo nav-sub"><a href="../state-cpi/">State Consumer Price Index</a></p>
 <p class="contactinfo nav-sub"><a href="../narrative-data/">Narrative Data from Investment Banks</a></p>
+</div>
 </header>
 
 <section>

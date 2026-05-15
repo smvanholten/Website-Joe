@@ -11,6 +11,18 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/custom.css">
 <script>
+function toggleProjects() {
+  var list = document.getElementById('projects-list');
+  var toggle = document.getElementById('projects-toggle');
+  if (list.style.display === 'none') {
+    list.style.display = '';
+    toggle.textContent = '▾ Projects';
+  } else {
+    list.style.display = 'none';
+    toggle.textContent = '▸ Projects';
+  }
+}
+
 function flipAbstract(n) {
   var body = document.getElementById('abstract-' + n);
   var cue = document.getElementById('cue-' + n);
@@ -64,11 +76,13 @@ function filterPapers(tag) {
 <p class="contactinfo"><a href="#news">News</a></p>
 <p class="contactinfo"><a href="#papers">Papers &amp; Discussions</a></p>
 <p class="contactinfo"><a href="#popular-writing">Popular Writing</a></p>
-<p class="contactinfo nav-group">Projects</p>
+<p class="contactinfo nav-group"><a href="javascript:toggleProjects()" id="projects-toggle">▸ Projects</a></p>
+<div id="projects-list" style="display:none">
 <p class="contactinfo nav-sub"><a href="./projects/firm-name-cleaning/">Firm Name Cleaning</a></p>
 <p class="contactinfo nav-sub"><a href="./projects/long-term-housing-yield/">Long Term Housing Yield</a></p>
 <p class="contactinfo nav-sub"><a href="./projects/state-cpi/">State Consumer Price Index</a></p>
 <p class="contactinfo nav-sub"><a href="./projects/narrative-data/">Narrative Data from Investment Banks</a></p>
+</div>
 </header>
 
 <section>

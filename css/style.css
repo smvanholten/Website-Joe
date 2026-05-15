@@ -38,9 +38,19 @@ p.contactinfo {
 
 p.contactinfo.nav-group {
   margin: 16px 0 6px;
-  color: var(--burgundy);
   font-size: 11px;
   letter-spacing: 0.08em;
+}
+
+p.contactinfo.nav-group a {
+  color: var(--burgundy);
+  border-bottom: none;
+  cursor: pointer;
+}
+
+p.contactinfo.nav-group a:hover {
+  color: var(--burgundy-dark);
+  border-bottom: none;
 }
 
 p.contactinfo.nav-sub {
