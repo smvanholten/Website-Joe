@@ -36,12 +36,11 @@ p.contactinfo {
   font-size: 12px;
 }
 
-p.contactinfo.nav-group {
-  margin: 16px 0 8px;
-}
-
-p.contactinfo.nav-group a {
-  cursor: pointer;
+.projects-chevron {
+  font-size: 9px;
+  margin-left: 4px;
+  vertical-align: 1px;
+  display: inline-block;
 }
 
 p.contactinfo.nav-sub {

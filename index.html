@@ -13,13 +13,13 @@
 <script>
 function toggleProjects() {
   var list = document.getElementById('projects-list');
-  var toggle = document.getElementById('projects-toggle');
+  var chevron = document.getElementById('projects-chevron');
   if (list.style.display === 'none') {
     list.style.display = '';
-    toggle.textContent = '▾ Projects';
+    if (chevron) chevron.textContent = '▾';
   } else {
     list.style.display = 'none';
-    toggle.textContent = '▸ Projects';
+    if (chevron) chevron.textContent = '▸';
   }
 }
 
@@ -76,7 +76,7 @@ function filterPapers(tag) {
 <p class="contactinfo"><a href="#news">News</a></p>
 <p class="contactinfo"><a href="#papers">Papers &amp; Discussions</a></p>
 <p class="contactinfo"><a href="#popular-writing">Popular Writing</a></p>
-<p class="contactinfo nav-group"><a href="javascript:toggleProjects()" id="projects-toggle">▸ Projects</a></p>
+<p class="contactinfo"><a href="javascript:toggleProjects()">Projects <span id="projects-chevron" class="projects-chevron">▸</span></a></p>
 <div id="projects-list" style="display:none">
 <p class="contactinfo nav-sub"><a href="./projects/firm-name-cleaning/">Firm Name Cleaning</a></p>
 <p class="contactinfo nav-sub"><a href="./projects/long-term-housing-yield/">Long Term Housing Yield</a></p>

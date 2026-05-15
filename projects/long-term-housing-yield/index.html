@@ -13,13 +13,13 @@
 <script>
 function toggleProjects() {
   var list = document.getElementById('projects-list');
-  var toggle = document.getElementById('projects-toggle');
+  var chevron = document.getElementById('projects-chevron');
   if (list.style.display === 'none') {
     list.style.display = '';
-    toggle.textContent = '▾ Projects';
+    if (chevron) chevron.textContent = '▾';
   } else {
     list.style.display = 'none';
-    toggle.textContent = '▸ Projects';
+    if (chevron) chevron.textContent = '▸';
   }
 }
 </script>
@@ -37,7 +37,7 @@ function toggleProjects() {
 <p class="contactinfo"><a href="../../index.html#news">News</a></p>
 <p class="contactinfo"><a href="../../index.html#papers">Papers &amp; Discussions</a></p>
 <p class="contactinfo"><a href="../../index.html#popular-writing">Popular Writing</a></p>
-<p class="contactinfo nav-group"><a href="javascript:toggleProjects()" id="projects-toggle">▾ Projects</a></p>
+<p class="contactinfo"><a href="javascript:toggleProjects()">Projects <span id="projects-chevron" class="projects-chevron">▾</span></a></p>
 <div id="projects-list">
 <p class="contactinfo nav-sub"><a href="../firm-name-cleaning/index.html">Firm Name Cleaning</a></p>
 <p class="contactinfo nav-sub"><a href="../long-term-housing-yield/index.html" class="current">Long Term Housing Yield</a></p>
