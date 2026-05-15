@@ -12,7 +12,7 @@
 body {
   background-color: var(--bg);
   padding: 50px;
-  font: 15px/1.6 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 15px/1.6 "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--body);
   font-weight: 400;
 }
