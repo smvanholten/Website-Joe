@@ -32,43 +32,33 @@ function toggleProjects() {
 <h1>Jonathon Hazell</h1>
 <p>Assistant Professor, Department of Economics, London School of Economics</p>
 <hr>
-<p class="contactinfo"><a href="../../">Home</a></p>
+<p class="contactinfo"><a href="../../index.html">Home</a></p>
 <p class="contactinfo"><a href="../../JONATHON_HAZELL.pdf">Vitae</a></p>
-<p class="contactinfo"><a href="../../#news">News</a></p>
-<p class="contactinfo"><a href="../../#papers">Papers &amp; Discussions</a></p>
-<p class="contactinfo"><a href="../../#popular-writing">Popular Writing</a></p>
+<p class="contactinfo"><a href="../../index.html#news">News</a></p>
+<p class="contactinfo"><a href="../../index.html#papers">Papers &amp; Discussions</a></p>
+<p class="contactinfo"><a href="../../index.html#popular-writing">Popular Writing</a></p>
 <p class="contactinfo nav-group"><a href="javascript:toggleProjects()" id="projects-toggle">▾ Projects</a></p>
 <div id="projects-list">
-<p class="contactinfo nav-sub"><a href="../firm-name-cleaning/" class="current">Firm Name Cleaning</a></p>
-<p class="contactinfo nav-sub"><a href="../long-term-housing-yield/">Long Term Housing Yield</a></p>
-<p class="contactinfo nav-sub"><a href="../state-cpi/">State Consumer Price Index</a></p>
-<p class="contactinfo nav-sub"><a href="../narrative-data/">Narrative Data from Investment Banks</a></p>
+<p class="contactinfo nav-sub"><a href="../firm-name-cleaning/index.html" class="current">Firm Name Cleaning</a></p>
+<p class="contactinfo nav-sub"><a href="../long-term-housing-yield/index.html">Long Term Housing Yield</a></p>
+<p class="contactinfo nav-sub"><a href="../state-cpi/index.html">State Consumer Price Index</a></p>
+<p class="contactinfo nav-sub"><a href="../narrative-data/index.html">Narrative Data from Investment Banks</a></p>
 </div>
 </header>
 
 <section>
 <h2>Firm Name Cleaning</h2>
 
-<p>This project provides tools to clean and harmonize firm names, either for general firm-name databases or specifically for the Burning Glass / Lightcast dataset of online vacancies.</p>
+<p>This page contains code to clean and harmonize firm names, either for general databases of firm names or specifically for the firm names from the Burning Glass / Lightcast dataset of online firm level vacancies.</p>
 
-<h3 class="subhead">Resources</h3>
-<ul>
-<li><a href="https://www.dropbox.com/s/e536p8t6bq9eswj/firm_names_preclean.do?dl=0" target="_blank" rel="noopener">Firm-name cleaning code</a> (Stata <code>.do</code> file) &mdash; applies with minor modifications to any firm-name dataset that needs cleaning or harmonization.</li>
-<li><a href="https://www.dropbox.com/s/dm58ly3acimb65w/firm_merge.dta?dl=0" target="_blank" rel="noopener">Burning Glass / Lightcast crosswalk</a> (3.5&nbsp;GB <code>.dta</code> file) &mdash; maps raw firm names from the Burning Glass / Lightcast data to cleaned and harmonized versions, combining the cleaning code with machine-learning deduplication via the Dedupe algorithm.</li>
-</ul>
+<p><a href="https://www.dropbox.com/s/e536p8t6bq9eswj/firm_names_preclean.do?dl=0" target="_blank" rel="noopener">Here</a> is a link to firm name cleaning code. This code can be applied with few alterations to any dataset of firm names that needs to be cleaned or harmonized.</p>
 
-<h3 class="subhead">Documentation</h3>
-<p>The training procedure and the construction of the crosswalk are described in Appendix A1.1 of <em>National Wage Setting</em>.</p>
+<p><a href="https://www.dropbox.com/s/dm58ly3acimb65w/firm_merge.dta?dl=0" target="_blank" rel="noopener">Here</a> is a link to a crosswalk (3.5GB size), which maps from raw firm names in Burning Glass / Lightcast data to cleaned and harmonized firm names. This crosswalk first applies the cleaning code above, and then uses a machine learning deduplication algorithm, <a href="https://github.com/dedupeio/dedupe" target="_blank" rel="noopener">Dedupe</a>. The procedure to train the algorithm and construct the crosswalk is described in Appendix A1.1 of &ldquo;National Wage Setting&rdquo; (by Jonathon Hazell, Christina Patterson, Heather Sarsons and Bledi Taska).</p>
 
-<h3 class="subhead">Authors</h3>
-<p>Anna Stansbury, Gregor Schubert, Jonathon Hazell, Christina Patterson, Heather Sarsons, and Bledi Taska.</p>
+<p>These codes were developed by Anna Stansbury, Gregor Schubert, Jonathon Hazell, Christina Patterson, Heather Sarsons and Bledi Taska. If you use these codes, please cite:</p>
 
-<h3 class="subhead">Citation</h3>
-<p>If you use these resources, please cite:</p>
-<ul>
-<li>Schubert, G., Stansbury, A., and Taska, B. (2021). &ldquo;Employer Concentration and Outside Options.&rdquo;</li>
-<li>Hazell, J., Patterson, C., Sarsons, H., and Taska, B. (2024). &ldquo;National Wage Setting.&rdquo;</li>
-</ul>
+<p style="padding-left: 20px;">Schubert, G., Stansbury, A., &amp; Taska, B. (2021). Employer Concentration and Outside Options.<br>
+Hazell, J., Patterson, C., Sarsons, H., &amp; Taska, B. (2024). National Wage Setting.</p>
 </section>
 
 </div>
