@@ -7,7 +7,7 @@ header img.portrait {
 }
 
 .research-work {
-  margin-bottom: 24px;
+  margin-bottom: 34px;
   padding-left: 12px;
   border-left: 2px solid transparent;
   transition: border-color 0.2s ease;
@@ -17,13 +17,22 @@ header img.portrait {
   border-left-color: #A04030;
 }
 
+.research-work h3 {
+  margin: 0 0 3px;
+  line-height: 1.3;
+}
+
+.research-work p {
+  margin: 0 0 3px;
+}
+
 .research-work .work-muted {
   color: #6d6d6d;
   font-size: 14px;
 }
 
 .research-work .work-abstract {
-  margin: 6px 0 6px;
+  margin: 4px 0 3px;
 }
 
 a.abstract-link {
