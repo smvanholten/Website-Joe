@@ -25,6 +25,30 @@ function flipAbstract(n) {
     if (cue) cue.textContent = '▾ Hide abstract';
   }
 }
+
+function filterPapers(tag) {
+  document.querySelectorAll('.filter-chip').forEach(function(c) { c.classList.remove('active'); });
+  var btn = document.querySelector('[data-filter="' + tag + '"]');
+  if (btn) btn.classList.add('active');
+
+  document.querySelectorAll('.research-work').forEach(function(w) {
+    var raw = w.getAttribute('data-tags') || '';
+    var tags = raw.split(',').map(function(t) { return t.trim(); });
+    w.style.display = (tag === 'all' || tags.indexOf(tag) >= 0) ? '' : 'none';
+  });
+
+  ['working-papers', 'published', 'discussions'].forEach(function(id) {
+    var h = document.getElementById(id);
+    if (!h) return;
+    var visible = 0;
+    var sib = h.nextElementSibling;
+    while (sib && !(sib.tagName === 'H3' && sib.classList.contains('subhead'))) {
+      if (sib.classList && sib.classList.contains('research-work') && sib.style.display !== 'none') visible++;
+      sib = sib.nextElementSibling;
+    }
+    h.style.display = visible > 0 ? '' : 'none';
+  });
+}
 </script>
 </head>
 <body>
@@ -36,9 +60,10 @@ function flipAbstract(n) {
 <p>Assistant Professor, Department of Economics, London School of Economics</p>
 <hr>
 <p class="contactinfo"><a href="./">Home</a></p>
+<p class="contactinfo"><a href="./JONATHON_HAZELL.pdf">Vitae</a></p>
 <p class="contactinfo"><a href="#news">News</a></p>
 <p class="contactinfo"><a href="#papers">Papers &amp; Discussions</a></p>
-<p class="contactinfo"><a href="./JONATHON_HAZELL.pdf">Vitae</a></p>
+<p class="contactinfo"><a href="#popular-writing">Popular Writing</a></p>
 </header>
 
 <section>
@@ -59,27 +84,42 @@ function flipAbstract(n) {
 
 <p>My email is J.hazell [at] lse [dot] ac [dot] uk. I sometimes <a href="https://twitter.com/JADHazell" target="_blank" rel="noopener">tweet</a> about my research.</p>
 
-<p class="address">Department of Economics, London School of Economics<br>
-Houghton Street, London WC2A 2AE, United Kingdom</p>
-
 <hr>
 
 <h2 id="news">News</h2>
 
-<p class="work-muted"><em>To be added.</em></p>
+<ul class="news-list">
+<li><span class="news-date">May 2026</span><span class="news-body">Our paper <a href="https://jadhazell.github.io/website/draft_conflicts.pdf" target="_blank" rel="noopener">Why Do Workers Dislike Inflation? Wage Erosion and Conflict Costs</a> is forthcoming at <em>Econometrica</em>.</span></li>
+<li><span class="news-date">April 2026</span><span class="news-body">Our paper <a href="https://jadhazell.github.io/website/Bonus_Question.pdf" target="_blank" rel="noopener">Bonus Question: How Does Flexible Incentive Pay Affect Wage Rigidity?</a> is forthcoming at <em>American Economic Review: Insights</em>.</span></li>
+<li><span class="news-date">March 2026</span><span class="news-body">First version of our working paper <a href="https://jadhazell.github.io/website/Household_Debt_Asset_Prices.pdf" target="_blank" rel="noopener">How Do Interest Rates Affect Consumption? Household Debt and the Role of Asset Prices</a> posted.</span></li>
+<li><span class="news-date">March 2026</span><span class="news-body">Our paper <a href="https://jadhazell.github.io/website/UK_Duration.pdf" target="_blank" rel="noopener">Dynamics of the Long Term Housing Yield: Evidence from Natural Experiments</a> appeared in the March 2026 issue of the <em>American Economic Review</em>.</span></li>
+<li><span class="news-date">October 2025</span><span class="news-body">Our paper <a href="https://jadhazell.github.io/website/National_Wage_Setting.pdf" target="_blank" rel="noopener">National Wage Setting</a> was accepted at the <em>American Economic Review</em>.</span></li>
+<li><span class="news-date">September 2025</span><span class="news-body">I was appointed to the editorial board of the <em>Review of Economic Studies</em>.</span></li>
+<li><span class="news-date">May 2025</span><span class="news-body">A major revision of our paper <a href="https://jadhazell.github.io/website/Fiscal_Inflation_Draft.pdf" target="_blank" rel="noopener">Do Deficits Cause Inflation? A High Frequency Narrative Approach</a> was released.</span></li>
+</ul>
 
 <hr>
 
 <h2 id="papers">Papers &amp; Discussions</h2>
 
-<p style="margin: 0 0 18px;"><strong>Jump to:</strong>
+<div class="paper-filter">
+<span class="filter-label">Filter by topic:</span>
+<button class="filter-chip active" data-filter="all" onclick="filterPapers('all')">All</button>
+<button class="filter-chip" data-filter="inflation" onclick="filterPapers('inflation')">Inflation</button>
+<button class="filter-chip" data-filter="wages" onclick="filterPapers('wages')">Wages &amp; Labor</button>
+<button class="filter-chip" data-filter="monetary" onclick="filterPapers('monetary')">Monetary</button>
+<button class="filter-chip" data-filter="fiscal" onclick="filterPapers('fiscal')">Fiscal</button>
+<button class="filter-chip" data-filter="financial" onclick="filterPapers('financial')">Financial</button>
+</div>
+
+<p style="margin: 0 0 14px;"><strong>Jump to:</strong>
 <a href="#working-papers">Working Papers</a> |
 <a href="#published">Published &amp; Accepted</a> |
 <a href="#discussions">Discussions</a></p>
 
 <h3 id="working-papers" class="subhead">Working Papers</h3>
 
-<div class="research-work">
+<div class="research-work" data-tags="monetary">
 <h3><a href="https://jadhazell.github.io/website/Household_Debt_Asset_Prices.pdf" target="_blank" rel="noopener">How Do Interest Rates Affect Consumption? Household Debt and the Role of Asset Prices</a></h3>
 <p class="work-muted">(with Angus Foulis, <a href="https://atif.scholar.princeton.edu/" target="_blank" rel="noopener">Atif Mian</a>, and Belinda Tracey)</p>
 <p class="work-muted">January 2026.</p>
@@ -87,7 +127,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted">Coverage: Bank of England Monetary Policy Report (Box E). <a href="https://x.com/JADHazell/status/2031019354377101442" target="_blank" rel="noopener">Twitter summary</a>.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="fiscal,inflation">
 <h3><a href="https://jadhazell.github.io/website/Fiscal_Inflation_Draft.pdf" target="_blank" rel="noopener">Do Deficits Cause Inflation? A High Frequency Narrative Approach</a></h3>
 <p class="work-muted">(with <a href="https://www.lse.ac.uk/economics/people/research-students/stephan-hobler" target="_blank" rel="noopener">Stephan Hobler</a>)</p>
 <p class="work-muted">May 2025.</p>
@@ -95,7 +135,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted"><a href="./narrative-data/" target="_blank" rel="noopener">Narrative dataset</a>. <a href="https://twitter.com/JADHazell/status/1833182324055306684" target="_blank" rel="noopener">Twitter summary</a>.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="financial,monetary">
 <h3><a href="https://jadhazell.github.io/website/LASH_Risk.pdf" target="_blank" rel="noopener">LASH Risk and Interest Rates</a></h3>
 <p class="work-muted">(with Laura Alfaro, Saleem Bahaj, Robert Czech, and Ioana Neam&#539;u)</p>
 <p class="work-muted">March 2026.</p>
@@ -105,7 +145,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 
 <h3 id="published" class="subhead">Published &amp; Accepted</h3>
 
-<div class="research-work">
+<div class="research-work" data-tags="inflation,wages">
 <h3><a href="https://jadhazell.github.io/website/draft_conflicts.pdf" target="_blank" rel="noopener">Why Do Workers Dislike Inflation? Wage Erosion and Conflict Costs</a></h3>
 <p class="work-muted">(with <a href="https://jguerreiro.com/" target="_blank" rel="noopener">Joao Guerreiro</a>, Chen Lian, and <a href="https://www.christinahydepatterson.com/" target="_blank" rel="noopener">Christina Patterson</a>)</p>
 <p class="work-muted">Forthcoming, <em>Econometrica</em>, May 2026. Awarded the SCOR&ndash;PSE Junior Research Prize.</p>
@@ -113,7 +153,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted"><a href="https://jadhazell.github.io/website/conflicts_appendix.pdf" target="_blank" rel="noopener">Online Appendix</a>. <a href="https://twitter.com/JADHazell/status/1836485273510908272" target="_blank" rel="noopener">Twitter summary</a>. Coverage: Marginal Revolution, Bloomberg, Wall Street Journal.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="wages">
 <h3><a href="https://jadhazell.github.io/website/National_Wage_Setting.pdf" target="_blank" rel="noopener">National Wage Setting</a></h3>
 <p class="work-muted">(with <a href="https://www.christinahydepatterson.com/" target="_blank" rel="noopener">Christina Patterson</a>, Heather Sarsons, and <a href="https://www.linkedin.com/in/bleditaska" target="_blank" rel="noopener">Bledi Taska</a>)</p>
 <p class="work-muted">Accepted, <em>American Economic Review</em>, June 2025.</p>
@@ -121,7 +161,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted"><a href="https://jadhazell.github.io/website/slides_national_wages.pdf" target="_blank" rel="noopener">Slides</a>. <a href="./firm-name-cleaning/" target="_blank" rel="noopener">Firm name cleaning code</a>. <a href="https://twitter.com/otis_reid/status/1476277485675462661" target="_blank" rel="noopener">Twitter summary</a>.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="wages">
 <h3><a href="https://jadhazell.github.io/website/Bonus_Question.pdf" target="_blank" rel="noopener">Bonus Question: How Does Flexible Incentive Pay Affect Wage Rigidity?</a></h3>
 <p class="work-muted">(with <a href="https://www.linkedin.com/in/meghanagaur" target="_blank" rel="noopener">Meghana Gaur</a>, John Grigsby, and Abdoulaye Ndiaye)</p>
 <p class="work-muted">Forthcoming, <em>American Economic Review: Insights</em>, October 2025.</p>
@@ -129,7 +169,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted"><a href="https://twitter.com/and_joy_/status/1706630172072456560" target="_blank" rel="noopener">Twitter summary</a>. Coverage: Marginal Revolution.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="monetary">
 <h3><a href="https://jadhazell.github.io/website/UK_Duration.pdf" target="_blank" rel="noopener">Dynamics of the Long Term Housing Yield: Evidence from Natural Experiments</a></h3>
 <p class="work-muted">(with Ver&oacute;nica B&auml;cker-Peral and <a href="https://atif.scholar.princeton.edu/" target="_blank" rel="noopener">Atif Mian</a>)</p>
 <p class="work-muted"><em>American Economic Review</em>, March 2026.</p>
@@ -137,7 +177,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted"><a href="https://sites.google.com/view/ystar-dynamics" target="_blank" rel="noopener">Real-time estimates</a>. <a href="https://sites.google.com/view/ystar-dynamics/replication-code-data" target="_blank" rel="noopener">Replication package</a>. <a href="https://twitter.com/AtifRMian/status/1783153118756442215" target="_blank" rel="noopener">Twitter summary</a>. Coverage: Financial Times.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="wages">
 <h3><a href="https://jadhazell.github.io/website/Downward_Rigidity.pdf" target="_blank" rel="noopener">Downward Rigidity in the Wage for New Hires</a></h3>
 <p class="work-muted">(with <a href="https://www.linkedin.com/in/bleditaska" target="_blank" rel="noopener">Bledi Taska</a>)</p>
 <p class="work-muted"><em>American Economic Review</em>, December 2025.</p>
@@ -145,7 +185,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted"><a href="https://jadhazell.github.io/website/Downward_Rigidity_Appendix.pdf" target="_blank" rel="noopener">Online Appendix</a>. <a href="https://www.youtube.com/watch?v=ysxnO5qnCTk" target="_blank" rel="noopener">Teaching video</a>. <a href="https://twitter.com/JADHazell/status/1830609897425392107" target="_blank" rel="noopener">Twitter summary</a>. Coverage: Marginal Revolution, Joint Economic Committee (US Senate).</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="inflation">
 <h3><a href="https://jadhazell.github.io/website/BHP_Discussion.pdf" target="_blank" rel="noopener">Comment on Beaudry, Hou and Portier, &ldquo;The Dominant Role of Expectations and Broad-Based Supply Shocks in Driving Inflation&rdquo;</a></h3>
 <p class="work-muted">Sole-authored.</p>
 <p class="work-muted"><em>NBER Macroeconomics Annual</em>, July 2025.</p>
@@ -153,7 +193,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted"><a href="https://jadhazell.github.io/website/Discussion_NBER_Macro.pdf" target="_blank" rel="noopener">Slides</a>.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="inflation,wages">
 <h3><a href="https://jadhazell.github.io/website/Phillips_Curve.pdf" target="_blank" rel="noopener">The Slope of the Phillips Curve: Evidence from U.S. States</a></h3>
 <p class="work-muted">(with Juan Herre&ntilde;o, Emi Nakamura, and J&oacute;n Steinsson)</p>
 <p class="work-muted"><em>Quarterly Journal of Economics</em> [lead article], August 2022.</p>
@@ -161,14 +201,14 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted"><a href="https://eml.berkeley.edu/~enakamura/papers/StateLevelCPIs_Appendix.pdf" target="_blank" rel="noopener">Online Appendix</a>. <a href="./state-cpi/" target="_blank" rel="noopener">State CPI database</a>. <a href="https://www.dropbox.com/sh/5jfw1lltniz3k55/AACjJbs92kyqRiySJXavDvCAa?dl=0" target="_blank" rel="noopener">Replication package</a>. <a href="https://twitter.com/JonSteinsson/status/1318551141291069440" target="_blank" rel="noopener">Twitter summary</a>. Coverage: The Economist, Paul Krugman (Substack), Noah Smith (Bloomberg), Chicago Fed, New York Times, Full Stack Economics.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="fiscal,wages">
 <h3><a href="https://jadhazell.github.io/website/AEA_PP_Draft.pdf" target="_blank" rel="noopener">Unemployment Insurance Financing as a Uniform Payroll Tax</a></h3>
 <p class="work-muted">(with Sebastian Graves, Walker Lewis, and <a href="https://www.christinahydepatterson.com/" target="_blank" rel="noopener">Christina Patterson</a>)</p>
 <p class="work-muted"><em>American Economic Association Papers &amp; Proceedings</em>, May 2022.</p>
 <p class="work-abstract"><a class="abstract-link" href="javascript:flipAbstract(11)"><span id="cue-11">&#9656; Show abstract</span></a><span class="abstract-body" id="abstract-11" data-open="0" style="display:none">Documents that a substantial portion of US unemployment-insurance taxes operates as a uniform payroll tax rather than an experience-rated firing tax.</span></p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="wages">
 <h3><a href="https://jadhazell.github.io/website/AI_And_Jobs.pdf" target="_blank" rel="noopener">AI and Jobs: Evidence from Online Vacancies</a></h3>
 <p class="work-muted">(with Daron Acemoglu, David Autor, and Pascual Restrepo)</p>
 <p class="work-muted"><em>Journal of Labor Economics</em>, April 2022.</p>
@@ -176,7 +216,7 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 <p class="work-muted"><a href="https://www.dropbox.com/sh/7qgxkgw6filpcps/AACIJCbUJwWtvz66jpXkWsUpa?dl=0" target="_blank" rel="noopener">Replication package</a>. <a href="https://twitter.com/davidautor/status/1348736556492840967" target="_blank" rel="noopener">Twitter summary</a>. Coverage: The Economist, VoxEU, Washington Post.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="financial">
 <h3><a href="https://jadhazell.github.io/website/Systemic_Risk_Shifting.pdf" target="_blank" rel="noopener">Systemic Risk Shifting in Financial Networks</a></h3>
 <p class="work-muted">(with Matthew Elliott and Co-Pierre Georg)</p>
 <p class="work-muted"><em>Journal of Economic Theory</em>, January 2021.</p>
@@ -186,47 +226,53 @@ Houghton Street, London WC2A 2AE, United Kingdom</p>
 
 <h3 id="discussions" class="subhead">Discussions</h3>
 
-<div class="research-work">
+<div class="research-work" data-tags="inflation,wages">
 <h3><a href="https://jadhazell.github.io/website/ABDH_Discussion.pdf" target="_blank" rel="noopener">A Theory of How Workers Keep Up With Inflation</a></h3>
 <p class="work-muted">Discussion of work by Hassan Afrouzi, Andres Blanco, Andres Drenik, and Erik Hurst.</p>
 <p class="work-muted">NBER Monetary Economics, November 2024.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="inflation">
 <h3><a href="https://jadhazell.github.io/website/BE_Discussion.pdf" target="_blank" rel="noopener">It's Baaack: The Surge in Inflation in the 2020s and the Return of the Non-Linear Phillips Curve</a></h3>
 <p class="work-muted">Discussion of work by Pierpaolo Benigno and Gauti Eggertsson.</p>
 <p class="work-muted">Reykjavik Economic Conference, May 2024.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="inflation">
 <h3><a href="https://jadhazell.github.io/website/Discussion_LHP.pdf" target="_blank" rel="noopener">Can Supply Shocks Be Inflationary with a Flat Phillips Curve?</a></h3>
 <p class="work-muted">Discussion of work by Jean-Paul L'Huillier and Gregory Phelan.</p>
 <p class="work-muted">Deutsche Bundesbank Conference on Structural Change, May 2024.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="inflation">
 <h3><a href="https://jadhazell.github.io/website/Discussion_NBER_Macro.pdf" target="_blank" rel="noopener">The Dominant Role of Expectations and Broad-Based Supply Shocks in Driving Inflation</a></h3>
 <p class="work-muted">Discussion of work by Paul Beaudry, Chenyu Hou, and Franck Portier.</p>
 <p class="work-muted">NBER Macroeconomics Annual Conference, April 2024.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="inflation">
 <h3><a href="https://jadhazell.github.io/website/GGLT_Discussion.pdf" target="_blank" rel="noopener">Anatomy of the Phillips Curve: Micro Evidence and Macro Implications</a></h3>
 <p class="work-muted">Discussion of work by Luca Gagliardone, Mark Gertler, Simone Lenzu, and Joris Tielens.</p>
 <p class="work-muted">European Central Bank Inflation Conference, September 2023.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="inflation">
 <h3><a href="https://jadhazell.github.io/website/CEGS_Discussion.pdf" target="_blank" rel="noopener">The Unemployment-Inflation Trade-off Revisited: The Phillips Curve in COVID Times</a></h3>
 <p class="work-muted">Discussion of work by Richard K. Crump, Stefano Eusepi, Marc Giannoni, and Ay&#351;eg&uuml;l &#350;ahin.</p>
 <p class="work-muted">Journal of Monetary Economics&ndash;SNB&ndash;Gerzensee Conference, October 2022.</p>
 </div>
 
-<div class="research-work">
+<div class="research-work" data-tags="wages">
 <h3><a href="https://jadhazell.github.io/website/Discussion_Petrosky-Nadeau.pdf" target="_blank" rel="noopener">Search Demand Effects, Equilibrium Unemployment and a Wage Phillips Curve</a></h3>
 <p class="work-muted">Discussion of work by Nicolas Petrosky-Nadeau, Etienne Wasmer, and Philippe Weil.</p>
 <p class="work-muted">AMSE&ndash;BdF Macro Workshop, December 2020.</p>
 </div>
+
+<hr>
+
+<h2 id="popular-writing">Popular Writing</h2>
+
+<p class="work-muted"><em>To be added.</em></p>
 
 </section>
 
